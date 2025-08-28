@@ -15,8 +15,8 @@ mkdir -p generated
 cd generated
 
 MODULE_DIR="$PWD/$PROJECT_NAME/src/$PROJECT_NAME"
-CONFIG_DIR="$PWD/$MODULE_DIR/config"
-LOG_DIR="$PWD/$MODULE_DIR/logging"
+CONFIG_DIR="$MODULE_DIR/config"
+LOG_DIR="$MODULE_DIR/logging"
 
 # initialize package type project structure with uv
 uv init "$PROJECT_NAME" --build-backend uv
