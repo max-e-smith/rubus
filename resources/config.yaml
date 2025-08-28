@@ -1,0 +1,12 @@
+---
+
+log:
+  log_root: ""
+  log_dir: "log"
+  level: "info"
+  log_size_mb: 10
+
+run_parameters:
+  some_parameter: "some_parameter_value"
+
+...
