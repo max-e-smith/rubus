@@ -11,12 +11,17 @@ if [ -n "$1" ]; then
       exit 1
 fi
 
-# initialize package type project structure with uv
-uv init "$PROJECT_NAME" --build-backend uv
-
 MODULE_DIR="$PROJECT_NAME/src/$PROJECT_NAME"
 CONFIG_DIR="$MODULE_DIR/config"
 LOG_DIR="$MODULE_DIR/logging"
+
+# initialize package type project structure with uv
+uv init "$PROJECT_NAME" --build-backend uv
+
+# Update the console script configuration to use main script in module
+OLD="$PROJECT_NAME:main"
+NEW="$PROJECT_NAME.main:main"
+sed "s/$OLD/$NEW/g" "$PROJECT_NAME/pyproject.toml"
 
 # copy resources into the project
 mkdir "$CONFIG_DIR"
@@ -45,9 +50,33 @@ EOF
 
 chmod 755 "$PROJECT_NAME/create_zipapp.sh"
 
-# Update the console script configuration to use main script in module
-OLD="$PROJECT_NAME:main"
-NEW="$PROJECT_NAME.main:main"
-sed "s/$OLD/$NEW/g" "$PROJECT_NAME/pyproject.toml"
+
+# create a basic README with project name
+cat <<EOF > "$PROJECT_NAME/README.md"
+# $PROJECT_NAME
+
+## Requirements
+uv (builds project) -- https://docs.astral.sh/uv/
+shiv (packages project into python zipapp executable) -- https://shiv.readthedocs.io/en/latest/
+
+## Usage
+App Usage Goes Here
+
+## Development
+### Package mgmt
+packages can be added to the project using uv, something like \`uv add <dependency>\`. Refer to uv's
+documentation for all features and syntax available.
+
+### Zip App
+When writing your project code, keep these two things in mind:
+ - The main() function in main.py is by default the console script (entry point) for the package. The
+pyproject.toml should be updated if this is changed.
+- All modules imports in the package should begin by importing from the base module $PROJECT_NAME
+
+When ready for the project to get packaged into a zipapp \"executable\", use the create_zipapp.sh script to
+generate a $PROJECT_NAME.pyz file that can be distributed to the deployment destination where
+a compatible version python interpreter exists.
+
+EOF
 
 exit $STATUS
