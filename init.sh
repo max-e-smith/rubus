@@ -1,0 +1,1 @@
+# TODO convert current project into a zipapp py project structure

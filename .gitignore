@@ -1,5 +1,5 @@
 # generate projects should not be committed
-generated
+project-generation/generated
 
 # Intellij
 .idea

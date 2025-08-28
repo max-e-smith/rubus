@@ -11,6 +11,13 @@ The generated project itself also requires shiv to package app into a zipapp
 https://shiv.readthedocs.io/en/latest/
 
 ## Usage
+Can be used as a template repository using the init.sh script OR used to repeatedly generate a basic 
+project structure that can be copied for use elsewhere. 
+
+### Template Repository Usage
+TODO
+
+### Basic Project Structure Generation Usage
 Run the `create_project.sh` with a project name as the only parameter in order to generate a project structure
 that can be used. 
 
