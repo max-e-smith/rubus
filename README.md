@@ -18,8 +18,8 @@ project structure that can be copied for use elsewhere.
 TODO
 
 ### Basic Project Structure Generation Usage
-Run the `create_project.sh` with a project name as the only parameter in order to generate a project structure
-that can be used. 
+Run the `create_project.sh` from within the project-generation subfolder with a project name as the only parameter 
+in order to generate a project structure that can be copied for use elsewhere. 
 
 The generated project can be deleted using the `delete_project.sh` script, passing the project name as only parameter.
 
