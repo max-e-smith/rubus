@@ -14,12 +14,17 @@ fi
 mkdir -p generated
 cd generated
 
-MODULE_DIR="$PROJECT_NAME/src/$PROJECT_NAME"
-CONFIG_DIR="$MODULE_DIR/config"
-LOG_DIR="$MODULE_DIR/logging"
+MODULE_DIR="$PWD/$PROJECT_NAME/src/$PROJECT_NAME"
+CONFIG_DIR="$PWD/$MODULE_DIR/config"
+LOG_DIR="$PWD/$MODULE_DIR/logging"
 
 # initialize package type project structure with uv
 uv init "$PROJECT_NAME" --build-backend uv
+
+if [ -z "$MODULE_DIR" ]; then
+  echo "Directory '$MODULE_DIR' was not created."
+  exit 1
+fi
 
 # Update the console script configuration to use main script in module
 OLD="$PROJECT_NAME:main"
