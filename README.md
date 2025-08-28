@@ -15,7 +15,11 @@ Can be used as a template repository using the init.sh script OR used to repeate
 project structure that can be copied for use elsewhere. 
 
 ### Template Repository Usage
-TODO
+Use github feature (UI or CLI) to create a new repo from the original rubus repository. 
+
+Run the init.sh script at the root of the project in your newly created repo. 
+
+Commit the changes!
 
 ### Basic Project Structure Generation Usage
 Run the `create_project.sh` from within the project-generation subfolder with a project name as the only parameter 
