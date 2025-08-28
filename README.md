@@ -17,9 +17,3 @@ that can be used.
 The generated project can be deleted using the `delete_project.sh` script, passing the project name as only parameter.
 
 Copy the generated project structure to another directory in order to use and commit it as a separate project.
-
-## Development
-Do not commit any committed project structures that have been generated. 
-Use the delete_project.sh script, passing the project name as only parameter, to clean up projects.
-
-The project could be updated to generate new project structures outside of this one's. 

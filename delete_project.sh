@@ -11,6 +11,9 @@ if [ -n "$1" ];
     exit 1
 fi
 
+mkdir -p generated
+cd generated
+
 if [ ! -d "$PWD/$PROJECT_NAME" ];
   then
     echo "Error: '$PROJECT_NAME' is not a valid directory name in the current path."

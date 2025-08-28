@@ -1,5 +1,5 @@
-# config file
-config.json
+# generate projects should not be committed
+generated
 
 # Intellij
 .idea

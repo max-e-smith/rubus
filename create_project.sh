@@ -11,6 +11,9 @@ if [ -n "$1" ]; then
       exit 1
 fi
 
+mkdir -p generated
+cd generated
+
 MODULE_DIR="$PROJECT_NAME/src/$PROJECT_NAME"
 CONFIG_DIR="$MODULE_DIR/config"
 LOG_DIR="$MODULE_DIR/logging"
@@ -26,11 +29,11 @@ sed "s/$OLD/$NEW/g" "$PROJECT_NAME/pyproject.toml"
 # copy resources into the project
 mkdir "$CONFIG_DIR"
 mkdir "$LOG_DIR"
-cp resources/config.yaml "$PROJECT_NAME"
-cp resources/.gitignore "$PROJECT_NAME"
-cp resources/properties.py "$CONFIG_DIR"
-cp resources/app_log.py "$LOG_DIR"
-cp resources/logger_builder.py "$LOG_DIR"
+cp ../resources/config.yaml "$PROJECT_NAME"
+cp ../resources/.gitignore "$PROJECT_NAME"
+cp ../resources/properties.py "$CONFIG_DIR"
+cp ../resources/app_log.py "$LOG_DIR"
+cp ../resources/logger_builder.py "$LOG_DIR"
 
 # overwrite generated __init__.py to be empty (no main function)
 cat <<EOF > "$MODULE_DIR/__init__.py"
